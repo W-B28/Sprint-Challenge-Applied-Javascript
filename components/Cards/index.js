@@ -16,4 +16,62 @@
 //   </div>
 // </div>
 //
+
+function Article(data){
+  //create elements of card
+  const card = document.createElement('div'),
+    header = document.createElement('div'),
+    authorCont = document.createElement('div'),
+    imgCont = document.createElement('div'),
+    cardImg = document.createElement('img'),
+    cardAuthor = document.createElement('span')
+
+// create classes
+card.classList.add('card');
+header.classList.add('headline');
+authorCont.classList.add('author');
+imgCont.classList.add('img-container');
+
+// add content
+header.textContent = data.headline;
+cardImg.src = data.authorPhoto;
+cardAuthor.textContent = data.authorName;
+
+// append
+card.append(header);
+card.append(authorCont);
+authorCont.append(cardAuthor);
+authorCont.append(imgCont);
+imgCont.append(cardImg);
+
+return card;
+
+}
+
+
 // Create a card for each of the articles and add the card to the DOM.
+const cards = document.querySelector('.cards-container')
+
+
+
+axios
+  .get('https://lambda-times-backend.herokuapp.com/articles')
+  .then(response => {
+    console.log(response)
+    // The Object.entries() method returns an array of a given object's own
+    // enumerable string-keyed property
+    // [key, value] pairs, in the same order as that provided by a for...in loop
+    const articleTitle = Object.entries(response.data.articles);
+    console.log(articleTitle);
+
+    articleTitle.forEach(item =>{
+      console.log(item);
+      item[1].forEach(data =>{
+        const newCard = Article(data);
+        cards.append(newCard);
+      });
+    });
+  })
+  .catch(error => {
+    console.log('Error loading data', error);
+  });

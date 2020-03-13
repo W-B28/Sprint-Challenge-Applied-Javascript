@@ -30,13 +30,28 @@ Edit this document to include your answers after each question. Make sure to lea
 
 1. What is the DOM?
 
+An object representation of the html elements of a webpage. It is an Application Programming Interface between the content and the browser.It defines the logical structure of documents and the way a document is accessed and manipulated.
+
+
 2. What is an event?
+
+JavaScript's interaction with HTML is handled through events that occur when the user or the browser manipulates a page. Events are a part of the Document Object Model (DOM) Level 3 and every HTML element contains a set of events which can trigger JavaScript Code.
+
 
 3. What is an event listener?
 
-4. Why would we convert a NodeList into an Array?
+An event listener is a procedure or function in a computer program that waits for an event to occur. Examples of an event are the user clicking or moving the mouse, pressing a key on the keyboard, disk I/O, network activity, or an internal timer or interrupt. The listener is programmed to react to an input or signal by calling the event's handler.
+
+
+4. Why would we convert a NodeList into an Array
+
+NodeLists are array-like but don't feature many of the methods provided by the Array, like forEach, map, filter, etc.
+
 
 5. What is a component?
+
+A component is a small, potentially re-usable set of logic, behaviors and interface elements (UI or API).
+
 
 ### Git Set up
 
@@ -51,7 +66,7 @@ Your finished project must include all of the following requirements:
 
 * [ ] Look through the HTML code and familiarize yourself with the different sections. Some of them already exist, but some need to be filled in. DO NOT add any code to the HTML file itself.
 
-* [ ] Following the instructions in the `Header/index.js` file, create the Header component. 
+* [ ] Following the instructions in the `Header/index.js` file, create the Header component.
 
 * [ ] Following the instructions in the `Tabs/index.js` file, create individual Tabs components.
 
