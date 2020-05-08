@@ -17,3 +17,81 @@
     <div class="right-button"> > </div>
   </div>
 */
+/* TO DO LIST:
+  1. grab HTML carousel element
+  2. create a function that builds the above DOM tree
+*/
+
+// First select the div where to inject js.
+const carousel = document.querySelector('.carousel-container');
+
+function createCarousel() {
+
+
+  // Create element & add class
+  const carousel = document.createElement('div');
+  carousel.classList.add('carousel');
+
+  // Create button elements, add class, and content 
+  const leftButton = document.createElement('div');
+  leftButton.classList.add('left-button');
+  leftButton.textContent = '<';
+
+  // Create image elements from above example 
+  const mountainImg = document.createElement('img');
+  const computerImg = document.createElement('img');
+  const treesImg = document.createElement('img');
+  const turntableImg = document.createElement('img');
+
+  // add sources to images
+  mountainImg.src = "./assets/carousel/mountains.jpeg";
+  computerImg.src = "./assets/carousel/computer.jpeg";
+  treesImg.src = "./assets/carousel/trees.jpeg";
+  turntableImg.src = "./assets/carousel/turntable.jpeg";
+
+
+  // Create button elements, add class, and content 
+  const rightButton = document.createElement('div');
+  rightButton.classList.add('right-button');
+  rightButton.textContent = '>';
+
+  // append items to DOM
+  carousel.appendChild(leftButton);
+  carousel.appendChild(mountainImg);
+  carousel.appendChild(computerImg);
+  carousel.appendChild(treesImg);
+  carousel.appendChild(turntableImg);
+  carousel.appendChild(rightButton);
+
+
+return carousel;
+}
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) { slideIndex = 1 }
+  if (n < 1) { slideIndex = slides.length }
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex - 1].style.display = "block";
+  dots[slideIndex - 1].className += " active";
+}
