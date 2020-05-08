@@ -14,7 +14,7 @@ axios
 
   .then(response => {
     let topics = document.querySelector('.topics');
-    // console.log(response);
+    console.log(response);
     let topicsArray = response.data.topics;
     topicsArray.forEach(item =>{
       let itemDiv = document.createElement('div');
