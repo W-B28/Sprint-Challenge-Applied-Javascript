@@ -26,7 +26,6 @@ function createCard(articleHeadline, authorImg, nameOfAuthor) {
   const author = document.createElement('div');
   const imgContainer = document.createElement('div');
   const authorImage = document.createElement('img');
-  const byauthor = document.createElement('span');
 
   newCard.classList.add('card');
   headline.classList.add('headline');
@@ -36,13 +35,11 @@ function createCard(articleHeadline, authorImg, nameOfAuthor) {
   headline.textContent = articleHeadline;
   author.textContent = nameOfAuthor;
   authorImage.src = authorImg;
-  console.log(authorImg);
 
   newCard.appendChild(headline);
   newCard.appendChild(author);
   author.appendChild(imgContainer);
   imgContainer.appendChild(authorImage);
-  author.appendChild(byauthor);
 
 
   return newCard;
@@ -50,7 +47,7 @@ function createCard(articleHeadline, authorImg, nameOfAuthor) {
 
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
   .then(res => {
-    console.log('The Cards API is working Correctly', res);
+    
     const articles = res.data.articles;
     const Cards = document.querySelector('.cards-container');
 

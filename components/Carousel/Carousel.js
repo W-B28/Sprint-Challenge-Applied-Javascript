@@ -46,7 +46,7 @@ function createCarousel() {
   // add sources to images
   mountainImg.src = "./assets/carousel/mountains.jpeg";
   computerImg.src = "./assets/carousel/computer.jpeg";
-  treeImg.src = "./assets/carousel/trees.jpeg";
+  treesImg.src = "./assets/carousel/trees.jpeg";
   turntableImg.src = "./assets/carousel/turntable.jpeg";
 
 
@@ -59,7 +59,7 @@ function createCarousel() {
   carousel.appendChild(leftButton);
   carousel.appendChild(mountainImg);
   carousel.appendChild(computerImg);
-  carousel.appendChild(treeImg);
+  carousel.appendChild(treesImg);
   carousel.appendChild(turntableImg);
   carousel.appendChild(rightButton);
 
@@ -67,4 +67,31 @@ function createCarousel() {
 return carousel;
 }
 
-createCarousel()
+var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) { slideIndex = 1 }
+  if (n < 1) { slideIndex = slides.length }
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex - 1].style.display = "block";
+  dots[slideIndex - 1].className += " active";
+}
