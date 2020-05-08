@@ -17,6 +17,72 @@
 // </div>
 //
 
+
+function createCard(articleHeadline, authorImg, nameOfAuthor) {
+
+
+  const newCard = document.createElement('div');
+  const headline = document.createElement('div');
+  const author = document.createElement('div');
+  const imgContainer = document.createElement('div');
+  const authorImage = document.createElement('img');
+  const byauthor = document.createElement('span');
+
+  newCard.classList.add('card');
+  headline.classList.add('headline');
+  author.classList.add('author');
+  imgContainer.classList.add('img-container');
+
+  headline.textContent = articleHeadline;
+  author.textContent = nameOfAuthor;
+  authorImage.src = authorImg;
+  console.log(authorImg);
+
+  newCard.appendChild(headline);
+  newCard.appendChild(author);
+  author.appendChild(imgContainer);
+  imgContainer.appendChild(authorImage);
+  author.appendChild(byauthor);
+
+
+  return newCard;
+}
+
+axios.get('https://lambda-times-backend.herokuapp.com/articles')
+  .then(res => {
+    console.log('The Cards API is working Correctly', res);
+    const articles = res.data.articles;
+    const Cards = document.querySelector('.cards-container');
+
+    articles.bootstrap.forEach(card => {
+      Cards.appendChild(createCard(card.headline, card.authorPhoto, card.authorName));
+    })
+
+    articles.javascript.forEach(card => {
+      Cards.appendChild(createCard(card.headline, card.authorPhoto, card.authorName));
+    })
+
+    articles.jquery.forEach(card => {
+      Cards.appendChild(createCard(card.headline, card.authorPhoto, card.authorName));
+    })
+
+    articles.node.forEach(card => {
+      Cards.appendChild(createCard(card.headline, card.authorPhoto, card.authorName));
+    })
+
+    articles.technology.forEach(card => {
+      Cards.appendChild(createCard(card.headline, card.authorPhoto, card.authorName));
+    })
+  })
+  .catch(error => {
+    console.log("Error, unable to pull the Cards ", error);
+  })
+
+
+
+
+
+/*
 const Article = (data) => {
   //create elements of card
   const card = document.createElement('div'),
@@ -74,3 +140,5 @@ axios
   .catch(error => {
     console.log('Error loading data', error);
   });
+
+  */

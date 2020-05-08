@@ -23,37 +23,37 @@
 */
 
 // First select the div where to inject js.
-const carousel = document.querySelector('.carousel-container')
+const carousel = document.querySelector('.carousel-container');
 
 function createCarousel() {
 
 
   // Create element & add class
-  const carousel = document.createElement('div')
-  carousel.classList.add('carousel')
+  const carousel = document.createElement('div');
+  carousel.classList.add('carousel');
 
   // Create button elements, add class, and content 
-  const leftButton = document.createElement('div')
-  leftButton.classList.add('left-button')
-  leftButton.textContent = '<'
+  const leftButton = document.createElement('div');
+  leftButton.classList.add('left-button');
+  leftButton.textContent = '<';
 
   // Create image elements from above example 
-  const mountainImg = document.createElement('img')
-  const computerImg = document.createElement('img')
-  const treesImg = document.createElement('img')
-  const turntableImg = document.createElement('img')
+  const mountainImg = document.createElement('img');
+  const computerImg = document.createElement('img');
+  const treesImg = document.createElement('img');
+  const turntableImg = document.createElement('img');
 
   // add sources to images
-  mountainImg.src = "./assets/carousel/mountains.jpeg"
-  computerImg.src = "./assets/carousel/computer.jpeg"
-  treeImg.src = "./assets/carousel/trees.jpeg"
-  turntableImg.src = "./assets/carousel/turntable.jpeg"
+  mountainImg.src = "./assets/carousel/mountains.jpeg";
+  computerImg.src = "./assets/carousel/computer.jpeg";
+  treeImg.src = "./assets/carousel/trees.jpeg";
+  turntableImg.src = "./assets/carousel/turntable.jpeg";
 
 
   // Create button elements, add class, and content 
-  const rightButton = document.createElement('div')
-  rightButton.classList.add('right-button')
-  rightButton.textContent = '>'
+  const rightButton = document.createElement('div');
+  rightButton.classList.add('right-button');
+  rightButton.textContent = '>';
 
   // append items to DOM
   carousel.appendChild(leftButton);
